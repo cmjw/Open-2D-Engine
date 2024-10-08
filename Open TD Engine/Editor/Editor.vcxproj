@@ -168,6 +168,7 @@
     <ClCompile Include="..\external\imgui\imgui_draw.cpp" />
     <ClCompile Include="..\external\imgui\imgui_tables.cpp" />
     <ClCompile Include="..\external\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="src\Editor.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
