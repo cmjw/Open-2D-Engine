@@ -13,20 +13,20 @@ using json = nlohmann::json;
 class Player {
 public:
 	int width;
-	int height; // temporary
+	int height;
 
-	// Add player as an sf::RectangleShape
-	sf::RectangleShape playerShape;
+	sf::RectangleShape sprite;
 
 	Player();
 	~Player();
 
-	void initialize(); // loads and initializes data'
+	// ability to reload sprite / change character?
 
-	void draw(sf::RenderWindow *window);
+	void draw(sf::RenderWindow& window);
 
 private:
 	void loadPlayerData();
+	void initialize(); // loads and initializes data
 };
 
 #endif
