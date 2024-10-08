@@ -12,10 +12,13 @@ void Game::initialize() {
     // Create the window
     window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Game Engine");
 
+    playerObj.draw(window);
+
     // Initialize the shape (a small rectangle, for example)
     player.setSize(sf::Vector2f(50.f, 50.f));  // 50x50 pixel square
     player.setFillColor(sf::Color::Green);     // Set the color of the shape
     player.setPosition(GAME_WIDTH / 2, GAME_HEIGHT / 2);  // Start in the center of the screen
+
 }
 
 void Game::update(float deltaTime) {
@@ -39,6 +42,7 @@ void Game::update(float deltaTime) {
 void Game::render() {
     window.clear();
     window.draw(player);  // Render the shape
+    playerObj.draw(window);
     window.display();
 }
 
