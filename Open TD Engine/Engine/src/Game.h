@@ -1,7 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <SFML/Graphics.hpp>
+#include "Player.h"
+
+#define GAME_WIDTH 800
+#define GAME_HEIGHT 600
 
 class Game {
 public:
@@ -17,11 +20,10 @@ private:
     void cleanup();  // Cleanup game resources
 
     sf::RenderWindow window;
-    const int GAME_WIDTH = 800;
-    const int GAME_HEIGHT = 600;
-
-    // Add player as an sf::RectangleShape
+    
     sf::RectangleShape player;
+
+    //Player player;
 };
 
 #endif // GAME_H
