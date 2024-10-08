@@ -23,7 +23,7 @@ private:
     
     sf::RectangleShape player;
 
-    //Player player;
+    Player playerObj;
 };
 
 #endif // GAME_H
