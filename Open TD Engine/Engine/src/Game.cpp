@@ -16,8 +16,10 @@ void Game::initialize() {
 }
 
 void Game::update(float deltaTime) {
-    // Handle input to move the shape
-    //float movementSpeed = 200.f;  // Pixels per second
+    // menu event
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+        // draw menu
+    }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
         player.move(0, -1, deltaTime);  // Move up
@@ -35,13 +37,13 @@ void Game::update(float deltaTime) {
 
 void Game::render() {
     window.clear();
-    //window.draw(player);  // Render the shape
-    player.draw(window);
+    player.render(window);
     window.display();
 }
 
 void Game::cleanup() {
     // Cleanup resources
+    
 }
 
 void Game::run() {
