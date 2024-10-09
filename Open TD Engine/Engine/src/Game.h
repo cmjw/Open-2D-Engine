@@ -21,11 +21,7 @@ private:
     void render();  // Render the game
     void cleanup();  // Cleanup game resources
 
-    sf::RenderWindow window;
-    
-    //sf::RectangleShape player;
-
-    
+    sf::RenderWindow window;    
 };
 
 #endif // GAME_H
