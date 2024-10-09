@@ -22,13 +22,15 @@ public:
 
 	// ability to reload sprite / change character?
 
-	void draw(sf::RenderWindow& window);
-
+	void render(sf::RenderWindow& window);
 	void move(float dx, float dy, float deltaTime);
 
 private:
-	bool loadPlayerData();
+	bool loadPlayerData(std::string str);
 	void initialize(); // loads and initializes data
+	void cleanup();
+
+	const std::string startingGraphic = "../Data/Player.json";
 };
 
 #endif
