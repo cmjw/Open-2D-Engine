@@ -9,11 +9,11 @@ Player::Player() {
 }
 
 Player::~Player() {
-
+	cleanup();
 }
 
 void Player::initialize() {
-	if (!loadPlayerData()) {
+	if (!loadPlayerData(startingGraphic)) {
 		// throw error
 	}
 
@@ -24,29 +24,28 @@ void Player::initialize() {
 	movementSpeed = 200.f;
 }
 
-bool Player::loadPlayerData() {
+bool Player::loadPlayerData(std::string playerGraphic) {
 	// eventually this is saved as some "starting graphic"
 
-	std::string jsonFile = "../Data/Player.json";
-
-	std::ifstream file(jsonFile);
+	std::ifstream file(playerGraphic);
 
 	if (!file.is_open()) {
-		std::cerr << "Could not open file: " << jsonFile << std::endl;
+		std::cerr << "Could not open file: " << playerGraphic << std::endl;
 		return false;
 	}
 
 	json playerData;
 
+	// try to read from Player.json
 	try {
-		file >> playerData;  // This can throw if the JSON is invalid
-	}
-	catch (const json::parse_error& e) {
+		file >> playerData;  
+	} catch (const json::parse_error& e) {
 		std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
+		file.close();
 		return false;
-	}
-	catch (const std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << "An error occurred: " << e.what() << std::endl;
+		file.close();
 		return false;
 	}
 
@@ -58,7 +57,7 @@ bool Player::loadPlayerData() {
 	return true;
 }
 
-void Player::draw(sf::RenderWindow& window) {
+void Player::render(sf::RenderWindow& window) {
 	window.draw(sprite);
 }
 
@@ -69,4 +68,8 @@ void Player::move(float dx, float dy, float deltaTime) {
 	// collisions?
 
 	sprite.move(newX, newY);
+}
+
+void Player::cleanup() {
+	
 }
