@@ -13,6 +13,8 @@ public:
 
     void run();  // Main game loop
 
+    Player player;
+
 private:
     void initialize();  // Initialize game resources
     void update(float deltaTime);  // Update game state
@@ -21,9 +23,9 @@ private:
 
     sf::RenderWindow window;
     
-    sf::RectangleShape player;
+    //sf::RectangleShape player;
 
-    Player playerObj;
+    
 };
 
 #endif // GAME_H
