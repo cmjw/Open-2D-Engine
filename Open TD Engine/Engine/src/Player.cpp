@@ -11,9 +11,11 @@ Player::~Player() {
 }
 
 void Player::initialize() {
-	sprite.setSize(sf::Vector2f(50.f, 50.f));  // 50x50 pixel square
-	sprite.setFillColor(sf::Color::Blue);     // Set the color of the shape
-	sprite.setPosition(0, 0);  // Start in the center of the
+	sprite.setSize(sf::Vector2f(50.f, 50.f)); 
+	sprite.setFillColor(sf::Color::Blue);    
+	sprite.setPosition(0, 0); 
+
+	movementSpeed = 200.f;
 }
 
 void Player::draw(sf::RenderWindow& window) {
@@ -21,7 +23,10 @@ void Player::draw(sf::RenderWindow& window) {
 }
 
 void Player::move(float dx, float dy, float deltaTime) {
-	float movementSpeed = 200.f;
+	float newDx = dx * movementSpeed * deltaTime;
+	float newDy = dy * movementSpeed * deltaTime;
 
-	sprite.move(dx * movementSpeed * deltaTime, dy * movementSpeed * deltaTime);
+	// collisions?
+
+	sprite.move(newDx, newDy);
 }
