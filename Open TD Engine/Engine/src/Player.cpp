@@ -1,5 +1,7 @@
 #include "Player.h"
 
+using json = nlohmann::json;
+
 Player::Player() {
 	initialize();
 	
@@ -11,16 +13,18 @@ Player::~Player() {
 }
 
 void Player::initialize() {
-	loadPlayerData();
+	if (!loadPlayerData()) {
+		// throw error
+	}
 
-	sprite.setSize(sf::Vector2f(50.f, 50.f)); 
+	sprite.setSize(sf::Vector2f(width, height)); 
 	sprite.setFillColor(sf::Color::Blue);    
 	sprite.setPosition(0, 0); 
 
 	movementSpeed = 200.f;
 }
 
-void Player::loadPlayerData() {
+bool Player::loadPlayerData() {
 	// eventually this is saved as some "starting graphic"
 
 	std::string jsonFile = "../Data/Player.json";
@@ -29,13 +33,29 @@ void Player::loadPlayerData() {
 
 	if (!file.is_open()) {
 		std::cerr << "Could not open file: " << jsonFile << std::endl;
-		return;
+		return false;
 	}
-	/*nlohmann::json playerData;
-	file >> playerData;*/
 
-	//width = playerData["size"]["width"];
-	//height = playerData["size"]["height"];
+	json playerData;
+
+	try {
+		file >> playerData;  // This can throw if the JSON is invalid
+	}
+	catch (const json::parse_error& e) {
+		std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
+		return false;
+	}
+	catch (const std::exception& e) {
+		std::cerr << "An error occurred: " << e.what() << std::endl;
+		return false;
+	}
+
+	file.close();
+
+	width = playerData["size"]["width"];
+	height = playerData["size"]["height"];
+
+	return true;
 }
 
 void Player::draw(sf::RenderWindow& window) {
