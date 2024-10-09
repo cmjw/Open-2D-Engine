@@ -15,6 +15,8 @@ public:
 	int width;
 	int height;
 
+	float movementSpeed;
+
 	sf::RectangleShape sprite;
 
 	Player();
