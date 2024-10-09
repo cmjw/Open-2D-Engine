@@ -12,37 +12,37 @@ void Game::initialize() {
     // Create the window
     window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Game Engine");
 
-    playerObj.draw(window);
+    // initialize Player?
 
     // Initialize the shape (a small rectangle, for example)
-    player.setSize(sf::Vector2f(50.f, 50.f));  // 50x50 pixel square
-    player.setFillColor(sf::Color::Green);     // Set the color of the shape
-    player.setPosition(GAME_WIDTH / 2, GAME_HEIGHT / 2);  // Start in the center of the screen
+    //player.setSize(sf::Vector2f(50.f, 50.f));  // 50x50 pixel square
+    //player.setFillColor(sf::Color::Green);     // Set the color of the shape
+    //player.setPosition(GAME_WIDTH / 2, GAME_HEIGHT / 2);  // Start in the center of the screen
 
 }
 
 void Game::update(float deltaTime) {
     // Handle input to move the shape
-    float movementSpeed = 200.f;  // Pixels per second
+    //float movementSpeed = 200.f;  // Pixels per second
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        player.move(0, -movementSpeed * deltaTime);  // Move up
+        player.move(0, -1, deltaTime);  // Move up
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        player.move(0, movementSpeed * deltaTime);   // Move down
+        player.move(0, 1, deltaTime);   // Move down
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        player.move(-movementSpeed * deltaTime, 0);  // Move left
+        player.move(-1, 0, deltaTime);  // Move left
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        player.move(movementSpeed * deltaTime, 0);   // Move right
+        player.move(1, 0, deltaTime);   // Move right
     }
 }
 
 void Game::render() {
     window.clear();
-    window.draw(player);  // Render the shape
-    playerObj.draw(window);
+    //window.draw(player);  // Render the shape
+    player.draw(window);
     window.display();
 }
 
