@@ -82,6 +82,7 @@
     <IncludePath>$(SolutionDir)\include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\lib\SFML;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Build-x64-Debug</OutDir>
+    <TargetName>Game</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>$(SolutionDir)\include;$(IncludePath)</IncludePath>

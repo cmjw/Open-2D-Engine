@@ -110,7 +110,7 @@ void Editor::initMenubar() {
 
 			// Start the process using a relative path
 			if (CreateProcess(
-				"Engine.exe",  // Relative path to your executable
+				"Game.exe",  // Relative path to your executable
 				NULL,              // Command line arguments
 				NULL,              // Process handle not inheritable
 				NULL,              // Thread handle not inheritable
