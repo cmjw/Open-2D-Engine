@@ -10,7 +10,7 @@ Game::~Game() {
 
 void Game::initialize() {
     // Create the window
-    window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Game Engine");
+    window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Game");
 
     // initialize Player?
 }
