@@ -8,13 +8,13 @@ Game::~Game() {
     cleanup();
 }
 
+/*
+Initialize game elements
+*/
 void Game::initialize() {
     loadConfigFile();
 
     initializeGameWindow();
-
-    // initialize Player?
-
 
     // test tile
     testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
@@ -23,7 +23,7 @@ void Game::initialize() {
 }
 
 void Game::loadConfigFile() {
-    std::ifstream file("./../Data/config.json");
+    std::ifstream file(CONFIG_FILE);
 
     if (file.is_open()) {
         nlohmann::json config;
@@ -51,22 +51,23 @@ void Game::loadConfigFile() {
     }
 }
 
+/*
+Initialize the game and virtualized view window.
+Dimensions are obtained from config.json
+*/
 void Game::initializeGameWindow() {
+    // create window
     window.create(sf::VideoMode(gameWidth * zoom, gameHeight * zoom), "Game");
 
     view.setSize(gameWidth, gameHeight);
     view.setCenter(gameWidth / 2, gameHeight / 2);
-    view.zoom(zoom/2);
 
+    // set zoom
+    view.zoom(zoom/2);
     window.setView(view);
 }
 
 void Game::update(float deltaTime) {
-    // menu event
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
-        // draw menu
-    }
-
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
         player.move(0, -1, deltaTime);  // Move up
     }
@@ -98,13 +99,14 @@ void Game::cleanup() {
 
 void Game::run() {
     sf::Clock clock;
+
     while (window.isOpen()) {
         sf::Event event;
         while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed)
+            if (event.type == sf::Event::Closed) {
                 window.close();
+            }
         }
-
         float deltaTime = clock.restart().asSeconds();
         update(deltaTime);
         render();
