@@ -14,6 +14,12 @@ void Game::initialize() {
     initializeGameWindow();
 
     // initialize Player?
+
+
+    // test tile
+    testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
+    testShape.setFillColor(sf::Color::Green);
+    testShape.setPosition(gameWidth / 2 - 8, gameHeight / 2 - 8); // Center the shape
 }
 
 void Game::loadConfigFile() {
@@ -77,7 +83,11 @@ void Game::update(float deltaTime) {
 
 void Game::render() {
     window.clear();
+
+    window.draw(testShape); // test tile size
+
     player.render(window);
+
     window.display();
 }
 
