@@ -15,13 +15,18 @@ public:
 
     Player player;
 
+    
+
 private:
     void initialize();  // Initialize game resources
     void update(float deltaTime);  // Update game state
     void render();  // Render the game
     void cleanup();  // Cleanup game resources
 
-    sf::RenderWindow window;    
+    sf::RenderWindow window;  
+
+    sf::Texture testSpriteTexture;
+    Sprite testSprite;
 };
 
 #endif // GAME_H
