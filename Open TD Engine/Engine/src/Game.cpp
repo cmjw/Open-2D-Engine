@@ -10,7 +10,14 @@ Game::~Game() {
 
 void Game::initialize() {
     // Create the window
-    window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Game");
+    window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Game");
+
+    view.setSize(GAME_WIDTH, GAME_HEIGHT);
+    view.setCenter(GAME_WIDTH / 2, GAME_HEIGHT / 2);
+    view.zoom(2.0f);
+
+    window.setView(view);
+
 
     // initialize Player?
 }
