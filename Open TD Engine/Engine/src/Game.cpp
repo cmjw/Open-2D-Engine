@@ -9,17 +9,50 @@ Game::~Game() {
 }
 
 void Game::initialize() {
-    // Create the window
-    window.create(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Game");
+    loadConfigFile();
 
-    view.setSize(GAME_WIDTH, GAME_HEIGHT);
-    view.setCenter(GAME_WIDTH / 2, GAME_HEIGHT / 2);
-    view.zoom(2.0f);
-
-    window.setView(view);
-
+    initializeGameWindow();
 
     // initialize Player?
+}
+
+void Game::loadConfigFile() {
+    std::ifstream file("./../Data/config.json");
+
+    if (file.is_open()) {
+        nlohmann::json config;
+
+        try {
+            file >> config;
+        }
+        catch (const json::parse_error& e) {
+            std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
+            file.close();
+        }
+        catch (const std::exception& e) {
+            std::cerr << "An error occurred: " << e.what() << std::endl;
+            file.close();
+        }
+
+        gameWidth = config["game_width"];
+        gameHeight = config["game_height"];
+        zoom = config["zoom"];
+    }
+    else {
+        std::cerr << "Could not open config file. Using default settings.\n";
+        gameWidth = 640;
+        gameHeight = 480;
+    }
+}
+
+void Game::initializeGameWindow() {
+    window.create(sf::VideoMode(gameWidth * zoom, gameHeight * zoom), "Game");
+
+    view.setSize(gameWidth, gameHeight);
+    view.setCenter(gameWidth / 2, gameHeight / 2);
+    view.zoom(zoom/2);
+
+    window.setView(view);
 }
 
 void Game::update(float deltaTime) {
