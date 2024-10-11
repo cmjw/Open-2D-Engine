@@ -13,6 +13,14 @@ void Game::initialize() {
     window.create(sf::VideoMode(GAME_WIDTH, GAME_HEIGHT), "Game");
 
     // initialize Player?
+
+    
+    if (!testSpriteTexture.loadFromFile("./../Data/spritesheet.png")) {
+        exit(-1);
+    }
+
+    //testSprite = Sprite();
+    testSprite = Sprite(testSpriteTexture, 60, 112, 1);
 }
 
 void Game::update(float deltaTime) {
@@ -38,6 +46,7 @@ void Game::update(float deltaTime) {
 void Game::render() {
     window.clear();
     player.render(window);
+
     window.display();
 }
 
