@@ -1,10 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SFML/Graphics.hpp>
-#include <iostream>
-#include <fstream>
-#include <nlohmann/json.hpp>
+#include "Sprite.h"
 
 using json = nlohmann::json;
 
