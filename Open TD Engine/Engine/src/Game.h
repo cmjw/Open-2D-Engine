@@ -3,6 +3,8 @@
 
 #include "Player.h"
 
+#define CONFIG_FILE "./../Data/config.json"
+
 class Game {
 public:
     Game();
@@ -26,6 +28,7 @@ private:
 
     sf::RectangleShape testShape;
 
+    // game and window dimenstions
     int gameWidth;
     int gameHeight;
     float zoom;
