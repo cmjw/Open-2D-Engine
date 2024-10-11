@@ -24,8 +24,17 @@ private:
     void render();  // Render the game
     void cleanup();  // Cleanup game resources
 
+    void initializeGameWindow();
+    void loadConfigFile();
+
     sf::RenderWindow window;  
     sf::View view;
+
+    int gameWidth;
+    int gameHeight;
+    float zoom;
+    
+    std::string game_title;
 };
 
 #endif // GAME_H
