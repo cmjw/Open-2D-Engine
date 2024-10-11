@@ -3,8 +3,11 @@
 
 #include "Player.h"
 
-#define GAME_WIDTH 800
-#define GAME_HEIGHT 600
+#define WINDOW_WIDTH 900
+#define WINDOW_HEIGHT 720
+
+#define GAME_WIDTH 320
+#define GAME_HEIGHT 240
 
 class Game {
 public:
@@ -21,7 +24,8 @@ private:
     void render();  // Render the game
     void cleanup();  // Cleanup game resources
 
-    sf::RenderWindow window;    
+    sf::RenderWindow window;  
+    sf::View view;
 };
 
 #endif // GAME_H
