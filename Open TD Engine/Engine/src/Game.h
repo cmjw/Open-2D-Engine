@@ -30,6 +30,8 @@ private:
     sf::RenderWindow window;  
     sf::View view;
 
+    sf::RectangleShape testShape;
+
     int gameWidth;
     int gameHeight;
     float zoom;
