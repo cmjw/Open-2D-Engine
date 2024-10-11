@@ -19,8 +19,8 @@ void Game::initialize() {
         exit(-1);
     }
 
-    //testSprite = Sprite();
     testSprite = Sprite(testSpriteTexture, 60, 112, 1);
+    testSprite.setPosition(0, 10);
 }
 
 void Game::update(float deltaTime) {
@@ -46,7 +46,7 @@ void Game::update(float deltaTime) {
 void Game::render() {
     window.clear();
     player.render(window);
-
+    testSprite.draw(window);
     window.display();
 }
 
