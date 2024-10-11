@@ -3,12 +3,6 @@
 
 #include "Player.h"
 
-#define WINDOW_WIDTH 900
-#define WINDOW_HEIGHT 720
-
-#define GAME_WIDTH 320
-#define GAME_HEIGHT 240
-
 class Game {
 public:
     Game();
