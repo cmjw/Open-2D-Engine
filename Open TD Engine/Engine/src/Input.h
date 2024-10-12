@@ -5,17 +5,11 @@
 
 class Input {
 public:
-	Input();
-	~Input();
-
-	bool upPressed();
-	bool downPressed();
-	bool leftPressed();
-	bool rightPressed();
-	bool menuPressed();
-
-private:
-	sf::Keyboard keyboard;
+	static bool upPressed();
+	static bool downPressed();
+	static bool leftPressed();
+	static bool rightPressed();
+	static bool menuPressed();
 };
 
 #endif
