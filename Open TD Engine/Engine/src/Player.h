@@ -1,10 +1,11 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+
+#include "Input.h"
 
 using json = nlohmann::json;
 
