@@ -1,13 +1,5 @@
 #include "Input.h"
 
-Input::Input() {
-
-}
-
-Input::~Input() {
-
-}
-
 bool Input::upPressed() {
 	return (sf::Keyboard::isKeyPressed(sf::Keyboard::Up));
 	// this will be a constant eventually
