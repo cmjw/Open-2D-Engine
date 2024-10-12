@@ -68,18 +68,7 @@ void Game::initializeGameWindow() {
 }
 
 void Game::update(float deltaTime) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
-        player.move(0, -1, deltaTime);  // Move up
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
-        player.move(0, 1, deltaTime);   // Move down
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
-        player.move(-1, 0, deltaTime);  // Move left
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        player.move(1, 0, deltaTime);   // Move right
-    }
+    player.updateMovement(deltaTime);
 }
 
 void Game::render() {

@@ -1,10 +1,11 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <SFML/Graphics.hpp>
 #include <iostream>
 #include <fstream>
 #include <nlohmann/json.hpp>
+
+#include "Input.h"
 
 using json = nlohmann::json;
 
@@ -23,6 +24,7 @@ public:
 	// ability to reload sprite / change character?
 
 	void render(sf::RenderWindow& window);
+	void updateMovement(float deltaTime);
 	void move(float dx, float dy, float deltaTime);
 
 private:
@@ -31,6 +33,8 @@ private:
 	void cleanup();
 
 	const std::string startingGraphic = "../Data/Player.json";
+
+	//Input keyboard;
 };
 
 #endif
