@@ -29,12 +29,10 @@ void Game::loadConfigFile() {
 
         try {
             file >> config;
-        }
-        catch (const json::parse_error& e) {
+        } catch (const json::parse_error& e) {
             std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
             file.close();
-        }
-        catch (const std::exception& e) {
+        } catch (const std::exception& e) {
             std::cerr << "An error occurred: " << e.what() << std::endl;
             file.close();
         }
