@@ -16,6 +16,8 @@ void Game::initialize() {
 
     initializeGameWindow();
 
+    keyboard = Input();
+
     // test tile
     testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
     testShape.setFillColor(sf::Color::Green);
@@ -68,16 +70,16 @@ void Game::initializeGameWindow() {
 }
 
 void Game::update(float deltaTime) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+    if (keyboard.upPressed()) {
         player.move(0, -1, deltaTime);  // Move up
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+    if (keyboard.downPressed()) {
         player.move(0, 1, deltaTime);   // Move down
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+    if (keyboard.leftPressed()) {
         player.move(-1, 0, deltaTime);  // Move left
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
+    if (keyboard.rightPressed()) {
         player.move(1, 0, deltaTime);   // Move right
     }
 }
