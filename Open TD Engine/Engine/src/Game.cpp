@@ -14,6 +14,8 @@ void Game::initialize() {
 
     initializeGameWindow();
 
+    gameMap = Map(16, 16, "");
+
     // test tile
     //testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
     //testShape.setFillColor(sf::Color::Green);
@@ -69,6 +71,8 @@ void Game::render() {
     window.clear();
 
     //window.draw(testShape); // test tile size
+
+    gameMap.render(window);
 
     player.render(window);
 
