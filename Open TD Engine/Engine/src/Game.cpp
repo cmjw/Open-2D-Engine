@@ -70,18 +70,7 @@ void Game::initializeGameWindow() {
 }
 
 void Game::update(float deltaTime) {
-    if (keyboard.upPressed()) {
-        player.move(0, -1, deltaTime);  // Move up
-    }
-    if (keyboard.downPressed()) {
-        player.move(0, 1, deltaTime);   // Move down
-    }
-    if (keyboard.leftPressed()) {
-        player.move(-1, 0, deltaTime);  // Move left
-    }
-    if (keyboard.rightPressed()) {
-        player.move(1, 0, deltaTime);   // Move right
-    }
+    player.updateMovement(deltaTime);
 }
 
 void Game::render() {
