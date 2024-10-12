@@ -10,21 +10,23 @@ public:
     Game();
     ~Game();
 
-    void run();  // Main game loop
-
-    Player player;
+    void run(); 
 
 private:
-    void initialize();  // Initialize game resources
-    void update(float deltaTime);  // Update game state
-    void render();  // Render the game
-    void cleanup();  // Cleanup game resources
+    void initialize(); 
+    void update(float deltaTime);  
+    void render();  
+    void cleanup();  
 
     void initializeGameWindow();
     void loadConfigFile();
 
+    // display window
     sf::RenderWindow window;  
     sf::View view;
+
+    // player
+    Player player;
 
     sf::RectangleShape testShape;
 
