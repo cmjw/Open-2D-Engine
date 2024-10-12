@@ -14,7 +14,7 @@ void Game::initialize() {
 
     initializeGameWindow();
 
-    gameMap = new Map(16, 16, "./../Data/tileset.png");
+    gameMap = new Map(10, 10, "./../Data/tileset.png");
 
     // test tile
     //testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
