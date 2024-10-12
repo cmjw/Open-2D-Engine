@@ -31,7 +31,7 @@ private:
 
     //sf::RectangleShape testShape;
 
-    Map gameMap;
+    Map* gameMap;
 
     // game and window dimenstions
     int gameWidth;
