@@ -8,18 +8,17 @@ Map::Map(int width, int height, const std::string& tilesetPath) {
 	mapWidth = width;
 	mapHeight = height;
 
-	if (!tilesetTexture.loadFromFile("./../Data/tileset.png")) {
-		std::cerr << "Tileset error" << std::endl;
-		return;
+	if (!texture.loadFromFile("./../Data/tileset.png")) {
+		exit(-1);
 	}
+	sprite.setTexture(texture);
+	
 
-	tileSprite.setTexture(tilesetTexture);
 }
 
 void Map::render(sf::RenderWindow& window) {
-	tileSprite.setPosition(0, 0);
-
-	window.draw(tileSprite);
+	sprite.setPosition(0, 0);
+	window.draw(sprite);
 }
 
 int Map::getWidth() {

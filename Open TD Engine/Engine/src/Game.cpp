@@ -14,7 +14,7 @@ void Game::initialize() {
 
     initializeGameWindow();
 
-    gameMap = Map(16, 16, "");
+    gameMap = Map(16, 16, "./../Data/tileset.png");
 
     // test tile
     //testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
@@ -73,6 +73,15 @@ void Game::render() {
     //window.draw(testShape); // test tile size
 
     gameMap.render(window);
+
+    /*sf::Texture tex;
+    if (!tex.loadFromFile("./../Data/tileset.png")) {
+        exit(-1);
+    }
+    sf::Sprite sprite;
+    sprite.setTexture(tex);
+    sprite.setPosition(0, 0);
+    window.draw(sprite);*/
 
     player.render(window);
 

@@ -21,8 +21,8 @@ private:
 	int mapWidth;
 	int mapHeight;
 
-	sf::Texture tilesetTexture;
-	sf::Sprite tileSprite;
+	sf::Texture texture;
+	sf::Sprite sprite;
 };
 
 #endif // !MAP_H
