@@ -6,7 +6,6 @@
 class Input {
 public:
 	Input();
-	Input(sf::Keyboard keyboard);
 	~Input();
 
 	bool upPressed();
