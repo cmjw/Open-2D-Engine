@@ -28,7 +28,7 @@ private:
     // player
     Player player;
 
-    sf::RectangleShape testShape;
+    //sf::RectangleShape testShape;
 
     // game and window dimenstions
     int gameWidth;
