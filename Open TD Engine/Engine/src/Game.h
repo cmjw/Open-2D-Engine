@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "Player.h"
+#include "Map.h"
 
 #define CONFIG_FILE "./../Data/config.json"
 
