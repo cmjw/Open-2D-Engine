@@ -30,6 +30,9 @@ private:
 
     sf::RectangleShape testShape;
 
+    sf::Texture testTexture;
+    sf::Sprite testSprite;
+
     // game and window dimenstions
     int gameWidth;
     int gameHeight;
