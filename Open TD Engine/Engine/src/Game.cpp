@@ -16,8 +16,6 @@ void Game::initialize() {
 
     initializeGameWindow();
 
-    keyboard = Input();
-
     // test tile
     testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
     testShape.setFillColor(sf::Color::Green);

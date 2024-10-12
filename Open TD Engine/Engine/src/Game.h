@@ -28,8 +28,6 @@ private:
 
     sf::RectangleShape testShape;
 
-    Input keyboard;
-
     // game and window dimenstions
     int gameWidth;
     int gameHeight;
