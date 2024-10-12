@@ -61,6 +61,21 @@ void Player::render(sf::RenderWindow& window) {
 	window.draw(sprite);
 }
 
+void Player::updateMovement(float deltaTime) {
+	if (Input::upPressed()) {
+		move(0, -1, deltaTime);  // Move up
+	}
+	if (Input::downPressed()) {
+		move(0, 1, deltaTime);   // Move down
+	}
+	if (Input::leftPressed()) {
+		move(-1, 0, deltaTime);  // Move left
+	}
+	if (Input::rightPressed()) {
+		move(1, 0, deltaTime);   // Move right
+	}
+}
+
 void Player::move(float dx, float dy, float deltaTime) {
 	float newX = dx * movementSpeed * deltaTime;
 	float newY = dy * movementSpeed * deltaTime;
