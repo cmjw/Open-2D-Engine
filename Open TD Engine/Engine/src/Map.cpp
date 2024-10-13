@@ -22,7 +22,8 @@ void Map::render(sf::RenderWindow& window) {
 
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
-			sprite.setTextureRect(sf::IntRect(TILE_SIZE, 0, TILE_SIZE, TILE_SIZE));
+			sprite.setTextureRect(sf::IntRect(0, TILE_SIZE, TILE_SIZE, TILE_SIZE));
+
 			sprite.setPosition(i * TILE_SIZE, j * TILE_SIZE);
 			window.draw(sprite);
 		}
