@@ -6,6 +6,11 @@
 
 #define TILE_SIZE 16
 
+struct Tile {
+	int x; // x pos in tileset
+	int y;
+};
+
 class Map {
 public:
 	Map();
@@ -23,6 +28,8 @@ private:
 
 	sf::Texture texture;
 	sf::Sprite sprite;
+
+	std::vector<std::vector<int>> tileMap;
 };
 
 #endif // !MAP_H
