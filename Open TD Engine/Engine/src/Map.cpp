@@ -12,17 +12,25 @@ Map::Map(int width, int height, const std::string& tilesetPath) {
 		exit(-1);
 	}
 	sprite.setTexture(texture);
-	
+}
 
+void Map::loadMapData(const std::vector<std::vector<int>>& mapData) {
+	this->mapData = mapData;
 }
 
 void Map::render(sf::RenderWindow& window) {
+	std::vector<std::vector<int>> data = {
+		{0,1,0,1},
+		{1,1,1,1},
+		{0,0,0,0}
+	};
+
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
-			int posX = 1;
+			int posX = data[j][i];
 			int posY = 0;
 
-			sprite.setTextureRect(sf::IntRect(TILE_SIZE * (posX % 3), TILE_SIZE * (posY % 3), TILE_SIZE, TILE_SIZE));
+			sprite.setTextureRect(sf::IntRect(TILE_SIZE * posX, TILE_SIZE * posY, TILE_SIZE, TILE_SIZE));
 
 			sprite.setPosition(i * TILE_SIZE, j * TILE_SIZE);
 			window.draw(sprite);
