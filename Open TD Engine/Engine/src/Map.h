@@ -12,6 +12,7 @@ public:
 	Map(int width, int height, const std::string& tilesetPath);
 	~Map() = default;
 
+	void loadMapData(const std::vector<std::vector<int>>& mapData);
 	void render(sf::RenderWindow& window);
 
 	int getWidth();
@@ -24,7 +25,7 @@ private:
 	sf::Texture texture;
 	sf::Sprite sprite;
 
-	std::vector<std::vector<int>> tileMap;
+	std::vector<std::vector<int>> mapData;
 };
 
 #endif // !MAP_H
