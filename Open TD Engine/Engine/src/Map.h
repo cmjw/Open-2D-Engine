@@ -6,11 +6,6 @@
 
 #define TILE_SIZE 16
 
-struct Tile {
-	int x; // x pos in tileset
-	int y;
-};
-
 class Map {
 public:
 	Map();
