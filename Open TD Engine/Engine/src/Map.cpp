@@ -17,12 +17,12 @@ Map::Map(int width, int height, const std::string& tilesetPath) {
 }
 
 void Map::render(sf::RenderWindow& window) {
-	/*sprite.setPosition(0, 0);
-	window.draw(sprite);*/
-
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
-			sprite.setTextureRect(sf::IntRect(0, TILE_SIZE, TILE_SIZE, TILE_SIZE));
+			int posX = 1;
+			int posY = 0;
+
+			sprite.setTextureRect(sf::IntRect(TILE_SIZE * (posX % 3), TILE_SIZE * (posY % 3), TILE_SIZE, TILE_SIZE));
 
 			sprite.setPosition(i * TILE_SIZE, j * TILE_SIZE);
 			window.draw(sprite);
