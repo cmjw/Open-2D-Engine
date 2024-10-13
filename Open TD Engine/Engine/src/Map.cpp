@@ -19,15 +19,9 @@ void Map::loadMapData(const std::vector<std::vector<int>>& mapData) {
 }
 
 void Map::render(sf::RenderWindow& window) {
-	std::vector<std::vector<int>> data = {
-		{0,1,0,1},
-		{1,1,1,1},
-		{0,0,0,0}
-	};
-
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
-			int posX = data[j][i];
+			int posX = mapData[j][i];
 			int posY = 0;
 
 			sprite.setTextureRect(sf::IntRect(TILE_SIZE * posX, TILE_SIZE * posY, TILE_SIZE, TILE_SIZE));
