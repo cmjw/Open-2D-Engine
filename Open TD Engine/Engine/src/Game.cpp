@@ -16,6 +16,15 @@ void Game::initialize() {
 
     gameMap = new Map(4, 3, "./../Data/tileset.png");
 
+    // this will exist in a JSON file, and loadMapData will take a filename
+    std::vector<std::vector<int>> mapData = {
+        {0,1,0,1},
+        {1,1,1,1},
+        {0,0,0,0}
+    };
+
+    gameMap->loadMapData(mapData);
+
     // test tile
     //testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
     //testShape.setFillColor(sf::Color::Green);
