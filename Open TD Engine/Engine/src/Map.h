@@ -8,7 +8,8 @@
 class Map {
 public:
 	Map();
-	Map(int width, int height, const std::string& tilesetPath);
+	Map(int width, int height, const std::string& tilesetPath, 
+		const std::string& mapDataPath);
 	~Map() = default;
 
 	void loadMapData(const std::vector<std::vector<int>>& mapData);
