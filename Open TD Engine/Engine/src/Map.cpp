@@ -4,14 +4,18 @@ Map::Map() {
 
 }
 
-Map::Map(int width, int height, const std::string& tilesetPath) {
+Map::Map(int width, int height, const std::string& tilesetPath,
+	const std::string& mapDataPath) {
 	mapWidth = width;
 	mapHeight = height;
 
+	// load tileset image as texture
 	if (!texture.loadFromFile("./../Data/tileset.png")) {
 		exit(-1);
 	}
 	sprite.setTexture(texture);
+
+	loadMapDataFromFile(mapDataPath);
 }
 
 void Map::loadMapData(const std::vector<std::vector<int>>& mapData) {
@@ -42,7 +46,8 @@ void Map::loadMapDataFromFile(const std::string& mapDataPath) {
 	}
 	file.close();
 
-
+	mapWidth = jsonData["map"]["width"];
+	mapHeight = jsonData["map"]["height"];
 }
 
 void Map::render(sf::RenderWindow& window) {
