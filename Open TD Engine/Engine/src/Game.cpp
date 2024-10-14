@@ -8,20 +8,16 @@ Game::~Game() {
     cleanup();
 }
 
-/*
-Initialize game elements
-*/
+/* Initialize game elements */
 void Game::initialize() {
     loadConfigFile();
 
     initializeGameWindow();
 
-    // test tile
-    testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
-    testShape.setFillColor(sf::Color::Green);
-    testShape.setPosition(gameWidth / 2 - 8, gameHeight / 2 - 8); // Center the shape
+    gameMap = new Map(4, 3, "./../Data/tileset.png", "./../Data/map1.json");
 }
 
+/* Load config file. */
 void Game::loadConfigFile() {
     std::ifstream file(CONFIG_FILE);
 
@@ -30,12 +26,10 @@ void Game::loadConfigFile() {
 
         try {
             file >> config;
-        }
-        catch (const json::parse_error& e) {
+        } catch (const json::parse_error& e) {
             std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
             file.close();
-        }
-        catch (const std::exception& e) {
+        } catch (const std::exception& e) {
             std::cerr << "An error occurred: " << e.what() << std::endl;
             file.close();
         }
@@ -51,10 +45,7 @@ void Game::loadConfigFile() {
     }
 }
 
-/*
-Initialize the game and virtualized view window.
-Dimensions are obtained from config.json
-*/
+/* Initialize the game and virtualized view window. Dimensions are obtained from config.json */
 void Game::initializeGameWindow() {
     // create window
     window.create(sf::VideoMode(gameWidth * zoom, gameHeight * zoom), "Game");
@@ -74,7 +65,9 @@ void Game::update(float deltaTime) {
 void Game::render() {
     window.clear();
 
-    window.draw(testShape); // test tile size
+    //window.draw(testShape); // test tile size
+
+    gameMap->render(window);
 
     player.render(window);
 

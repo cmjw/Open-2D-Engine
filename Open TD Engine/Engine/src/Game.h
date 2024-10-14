@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "Player.h"
+#include "Map.h"
 
 #define CONFIG_FILE "./../Data/config.json"
 
@@ -28,7 +29,8 @@ private:
     // player
     Player player;
 
-    sf::RectangleShape testShape;
+    // current map
+    Map* gameMap;
 
     // game and window dimenstions
     int gameWidth;
