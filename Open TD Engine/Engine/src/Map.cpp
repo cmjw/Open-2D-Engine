@@ -48,7 +48,14 @@ void Map::loadMapDataFromFile(const std::string& mapDataPath) {
 	mapHeight = jsonData["map"]["height"];
 
 	// load tile data
+	mapData.resize(mapHeight, std::vector<int>(mapWidth));
 
+	const auto& tiles = jsonData["map"]["tiles"];
+	for (int y = 0; y < mapHeight; y++) {
+		for (int x = 0; x < mapWidth; x++) {
+			mapData[y][x] = tiles[y][x];
+		}
+	}
 }
 
 void Map::render(sf::RenderWindow& window) {
