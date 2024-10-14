@@ -1,9 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <iostream>
-#include <fstream>
-#include <nlohmann/json.hpp>
 
 #include "Input.h"
 

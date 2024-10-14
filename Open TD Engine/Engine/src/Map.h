@@ -2,7 +2,6 @@
 #define MAP_H
 
 #include "Input.h"
-#include <iostream>
 
 #define TILE_SIZE 16
 
@@ -13,6 +12,7 @@ public:
 	~Map() = default;
 
 	void loadMapData(const std::vector<std::vector<int>>& mapData);
+	void loadMapDataFromFile(const std::string& mapDataPath);
 	void render(sf::RenderWindow& window);
 
 	int getWidth();
