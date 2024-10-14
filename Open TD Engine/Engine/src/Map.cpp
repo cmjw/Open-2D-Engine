@@ -18,6 +18,33 @@ void Map::loadMapData(const std::vector<std::vector<int>>& mapData) {
 	this->mapData = mapData;
 }
 
+void Map::loadMapDataFromFile(const std::string& mapDataPath) {
+	std::ifstream file(mapDataPath);
+	if (!file.is_open()) {
+		std::cerr << "Error: could not open map data file " << mapDataPath << std::endl;
+		return;
+	}
+
+	nlohmann::json jsonData;
+	
+	try {
+		file >> jsonData;
+	}
+	catch (const nlohmann::json::parse_error& e) {
+		std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
+		file.close();
+		return;
+	}
+	catch (const std::exception& e) {
+		std::cerr << "An error occurred: " << e.what() << std::endl;
+		file.close();
+		return;
+	}
+	file.close();
+
+
+}
+
 void Map::render(sf::RenderWindow& window) {
 	for (int i = 0; i < mapWidth; i++) {
 		for (int j = 0; j < mapHeight; j++) {
