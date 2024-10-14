@@ -14,7 +14,9 @@ void Game::initialize() {
 
     initializeGameWindow();
 
-    gameMap = new Map(4, 3, "./../Data/tileset.png");
+    gameMap = new Map(4, 3, "./../Data/tileset.png", "./../Data/map1.json");
+
+
 
     // this will exist in a JSON file, and loadMapData will take a filename
     std::vector<std::vector<int>> mapData = {
@@ -24,11 +26,6 @@ void Game::initialize() {
     };
 
     gameMap->loadMapData(mapData);
-
-    // test tile
-    //testShape.setSize(sf::Vector2f(16.f, 16.f));  // A tile is 16x16 pixels
-    //testShape.setFillColor(sf::Color::Green);
-    //testShape.setPosition(gameWidth / 2 - 8, gameHeight / 2 - 8); // Center the shape
 }
 
 /* Load config file. */
