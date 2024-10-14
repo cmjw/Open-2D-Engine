@@ -15,17 +15,6 @@ void Game::initialize() {
     initializeGameWindow();
 
     gameMap = new Map(4, 3, "./../Data/tileset.png", "./../Data/map1.json");
-
-
-
-    // this will exist in a JSON file, and loadMapData will take a filename
-    std::vector<std::vector<int>> mapData = {
-        {0,1,0,1},
-        {1,1,1,1},
-        {0,0,0,0}
-    };
-
-    gameMap->loadMapData(mapData);
 }
 
 /* Load config file. */
