@@ -1,7 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-
 #include "Input.h"
 
 using json = nlohmann::json;

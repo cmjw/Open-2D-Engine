@@ -33,13 +33,11 @@ void Map::loadMapDataFromFile(const std::string& mapDataPath) {
 	
 	try {
 		file >> jsonData;
-	}
-	catch (const nlohmann::json::parse_error& e) {
+	} catch (const nlohmann::json::parse_error& e) {
 		std::cerr << "Parse error at byte " << e.byte << ": " << e.what() << std::endl;
 		file.close();
 		return;
-	}
-	catch (const std::exception& e) {
+	} catch (const std::exception& e) {
 		std::cerr << "An error occurred: " << e.what() << std::endl;
 		file.close();
 		return;
@@ -48,6 +46,9 @@ void Map::loadMapDataFromFile(const std::string& mapDataPath) {
 
 	mapWidth = jsonData["map"]["width"];
 	mapHeight = jsonData["map"]["height"];
+
+	// load tile data
+
 }
 
 void Map::render(sf::RenderWindow& window) {

@@ -29,8 +29,7 @@ private:
     // player
     Player player;
 
-    //sf::RectangleShape testShape;
-
+    // current map
     Map* gameMap;
 
     // game and window dimenstions
