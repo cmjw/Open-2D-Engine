@@ -146,7 +146,9 @@ void Editor::initMenubar() {
 }
 
 void Editor::renderMapEditor() {
-	ImGui::BeginChild("Map Editor", ImVec2(300, 400), true);
+	sf::Vector2u windowSize = window.getSize();
+
+	ImGui::BeginChild("Map Editor", ImVec2(windowSize.x / 2, windowSize.y - windowSize.y/6), true);
 	
 	ImGui::Text("This is the pame");
 
