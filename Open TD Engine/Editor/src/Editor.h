@@ -20,8 +20,9 @@ private:
 	void initialize();
 	void initMenubar();
 	void render();
-	
 	void cleanup();
+
+	void renderMapEditor();
 
 	const int EDITOR_WIDTH = 1200;
 	const int EDITOR_HEIGHT = 1000;
@@ -31,6 +32,8 @@ private:
 	sf::Clock deltaClock;
 
 	bool isDarkMode;
+
+	bool showMapEditor;
 };
 
 #endif
