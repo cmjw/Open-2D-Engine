@@ -23,6 +23,8 @@ void Editor::initialize() {
 	isDarkMode = true;
 	ImGui::StyleColorsDark();
 
+	showMapEditor = false;
+
 	// Maximize the window
 	window.setPosition(sf::Vector2i(0, 0));
 	window.setSize(sf::Vector2u(desktopMode.width, desktopMode.height));
@@ -48,10 +50,17 @@ void Editor::run() {
 
 		initMenubar();
 
+		sf::Vector2u windowSize = window.getSize();
+		float menuBarHeight = ImGui::GetFrameHeight();
+
+		ImGui::SetNextWindowPos(ImVec2(0, menuBarHeight));  // Position window just below the menu bar
+		ImGui::SetNextWindowSize(ImVec2(windowSize.x, windowSize.y - menuBarHeight));
+
 		// Create a main content area
-		ImGui::Begin("Game Editor");
-		ImGui::Text("Welcome to the Game Editor!");
-		ImGui::Text("Use the File menu to run the engine.");
+		ImGui::Begin("Editor", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
+
+		renderMapEditor();
+
 		ImGui::End();
 
 		render();
@@ -99,6 +108,9 @@ void Editor::initMenubar() {
 			}
 			ImGui::EndMenu();
 		}
+		if (ImGui::MenuItem("Map Editor")) {
+			
+		}
 		if (ImGui::MenuItem("Playtest")) {
 			STARTUPINFO si;
 			PROCESS_INFORMATION pi;
@@ -131,6 +143,14 @@ void Editor::initMenubar() {
 		}
 		ImGui::EndMainMenuBar();
 	}
+}
+
+void Editor::renderMapEditor() {
+	ImGui::BeginChild("Map Editor", ImVec2(300, 400), true);
+	
+	ImGui::Text("This is the pame");
+
+	ImGui::EndChild();
 }
 
 void Editor::cleanup() {
