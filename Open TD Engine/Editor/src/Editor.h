@@ -23,6 +23,7 @@ private:
 
 	const int EDITOR_WIDTH = 1200;
 	const int EDITOR_HEIGHT = 1000;
+
 	sf::RenderWindow window;
 	
 	sf::Clock deltaClock;
