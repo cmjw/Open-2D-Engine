@@ -7,6 +7,8 @@
 
 #include <windows.h>
 
+#include "Game.h"
+
 class Editor {
 public:
 	Editor();
